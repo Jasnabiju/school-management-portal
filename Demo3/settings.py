@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-r&$f$#re*c=vs75z*k47^6!h)gbj%+%sib)$fw75-nibo5w8-=
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["*"]
 
 
 # Application definition
@@ -42,6 +42,7 @@ INSTALLED_APPS = [
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
+    "whitenoise.middleware.WhiteNoiseMiddleware",
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -122,3 +123,6 @@ STATICFILES_DIRS = [
 ]
 
 LOGIN_URL = '/teacher/'
+
+STATIC_ROOT = BASE_DIR / "staticfiles"
+
