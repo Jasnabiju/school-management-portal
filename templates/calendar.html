@@ -1,0 +1,120 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Academic Calendar</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+
+<body>
+
+    <div class="navbar">
+
+    <a href="{% url 'teacher_dashboard' %}">
+        Dashboard
+    </a>
+
+    <a href="{% url 'attendance' %}">
+        Attendance
+    </a>
+
+    <a href="{% url 'all_attendance' %}">
+        Attendance Records
+    </a>
+
+    <a href="{% url 'marks' %}">
+        Enter Marks
+    </a>
+
+    <a href="{% url 'view_marks' %}">
+        View Marks
+    </a>
+
+    <a href="{% url 'add_student' %}">
+        Add Student
+    </a>
+
+    <a href="{% url 'view_students' %}">
+        View Students
+    </a>
+
+    <a href="{% url 'announcements' %}">
+        Announcements
+    </a>
+
+    <a href="{% url 'assignments' %}">
+        Assignments
+    </a>
+
+</div>
+
+<div class="header">
+    KKPP School Management Portal
+</div>
+
+<div class="card center">
+
+<h2>Add Event</h2>
+
+<form method="POST">
+
+{% csrf_token %}
+
+<input
+type="text"
+name="title"
+placeholder="Event Title">
+
+<br><br>
+
+<input
+type="date"
+name="event_date">
+
+<br><br>
+
+<textarea
+name="description"
+placeholder="Description">
+</textarea>
+
+<br><br>
+
+<button>
+Add Event
+</button>
+
+</form>
+
+<hr>
+
+<h2>Academic Events</h2>
+
+{% for event in events %}
+
+<div class="feature-card">
+
+<h3>
+{{ event.title }}
+</h3>
+
+<p>
+{{ event.event_date }}
+</p>
+
+<p>
+{{ event.description }}
+</p>
+
+</div>
+
+{% endfor %}
+
+<div class="footer">
+    © 2026 KKPP School Management Portal
+</div>
+
+<script src="{% static 'js/script.js' %}"></script>
+
+</body>
+</html>

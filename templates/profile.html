@@ -1,0 +1,83 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+<head>
+<title>Profile</title>
+<link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+
+<body>
+
+    <div class="navbar">
+
+    <a href="{% url 'student_dashboard' %}">
+        Dashboard
+    </a>
+
+    <a href="{% url 'student_view_attendance' %}">
+        Attendance
+    </a>
+
+    <a href="{% url 'student_view_marks' %}">
+        Marks
+    </a>
+
+    <a href="{% url 'view_assignments' %}">
+        Assignments
+    </a>
+
+    <a href="{% url 'view_announcements' %}">
+        Announcements
+    </a>
+
+    <a href="{% url 'profile' %}">
+        Profile
+    </a>
+
+    <a href="{% url 'report_card' %}">
+        Report Card
+    </a>
+
+    <a href="{% url 'view_calendar' %}">
+        Calendar
+    </a>
+
+    <a href="{% url 'logout' %}">
+        Logout
+    </a>
+
+</div>
+
+<div class="header">
+Student Profile
+</div>
+
+<div class="card center">
+
+<h2>{{ student.name }}</h2>
+
+<p>
+Roll Number :
+{{ student.roll_no }}
+</p>
+
+<p>
+Class :
+{{ student.student_class }}
+</p>
+
+<p>
+Email :
+{{ student.email }}
+</p>
+
+<p>
+Phone :
+{{ student.phone }}
+</p>
+
+</div>
+
+</body>
+</html>

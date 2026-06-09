@@ -1,0 +1,91 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+<head>
+<title>Assignments</title>
+<link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+
+<body>
+
+<div class="header">
+KKPP School Management Portal - Student Portal
+</div>
+
+<div class="navbar">
+
+    <a href="{% url 'student_dashboard' %}">
+        Dashboard
+    </a>
+
+    <a href="{% url 'student_view_attendance' %}">
+        Attendance
+    </a>
+
+    <a href="{% url 'student_view_marks' %}">
+        Marks
+    </a>
+
+    <a href="{% url 'view_assignments' %}">
+        Assignments
+    </a>
+
+    <a href="{% url 'view_announcements' %}">
+        Announcements
+    </a>
+
+    <a href="{% url 'profile' %}">
+        Profile
+    </a>
+
+    <a href="{% url 'report_card' %}">
+        Report Card
+    </a>
+
+    <a href="{% url 'view_calendar' %}">
+        Calendar
+    </a>
+
+    <a href="{% url 'logout' %}">
+        Logout
+    </a>
+
+</div>
+
+<div class="card center">
+
+<h2>Assignments</h2>
+
+<table>
+
+<tr>
+<th>Title</th>
+<th>Description</th>
+<th>Due Date</th>
+</tr>
+
+{% for a in assignments %}
+
+<tr>
+<td>{{ a.title }}</td>
+<td>{{ a.description }}</td>
+<td>{{ a.due_date }}</td>
+</tr>
+
+{% empty %}
+
+<tr>
+<td colspan="3">
+No assignments available.
+</td>
+</tr>
+
+{% endfor %}
+
+</table>
+
+</div>
+
+</body>
+</html>

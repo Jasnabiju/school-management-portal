@@ -1,0 +1,80 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Students</title>
+    <link rel="stylesheet"
+          href="{% static 'css/style.css' %}">
+</head>
+
+<body>
+
+    <div class="header">
+    KKPP School Management Portal
+</div>
+
+    <div class="navbar">
+
+    <a href="{% url 'teacher_dashboard' %}">
+        Dashboard
+    </a>
+
+    <a href="{% url 'attendance' %}">
+        Attendance
+    </a>
+
+    <a href="{% url 'all_attendance' %}">
+        Attendance Records
+    </a>
+
+    <a href="{% url 'marks' %}">
+        Enter Marks
+    </a>
+
+    <a href="{% url 'view_marks' %}">
+        View Marks
+    </a>
+
+    <a href="{% url 'add_student' %}">
+        Add Student
+    </a>
+
+    <a href="{% url 'view_students' %}">
+        View Students
+    </a>
+
+    <a href="{% url 'announcements' %}">
+        Announcements
+    </a>
+
+    <a href="{% url 'assignments' %}">
+        Assignments
+    </a>
+
+</div>
+
+<div class="card center">
+
+<h2>All Students</h2>
+
+<table border="1">
+    <tr>
+        <th>Name</th>
+        <th>Roll No</th>
+        <th>Class</th>
+    </tr>
+
+    {% for student in students %}
+    <tr>
+        <td>{{ student.name }}</td>
+        <td>{{ student.roll_no }}</td>
+        <td>{{ student.student_class }}</td>
+    </tr>
+    {% endfor %}
+</table>
+
+</div>
+
+</body>
+</html>

@@ -1,0 +1,140 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Enter Marks</title>
+
+    <link rel="stylesheet"
+          href="{% static 'css/style.css' %}">
+</head>
+
+<body>
+
+<div class="header">
+    KKPP School Management Portal
+</div>
+
+    <div class="navbar">
+
+    <a href="{% url 'teacher_dashboard' %}">
+        Dashboard
+    </a>
+
+    <a href="{% url 'attendance' %}">
+        Attendance
+    </a>
+
+    <a href="{% url 'all_attendance' %}">
+        Attendance Records
+    </a>
+
+    <a href="{% url 'marks' %}">
+        Enter Marks
+    </a>
+
+    <a href="{% url 'view_marks' %}">
+        View Marks
+    </a>
+
+    <a href="{% url 'add_student' %}">
+        Add Student
+    </a>
+
+    <a href="{% url 'view_students' %}">
+        View Students
+    </a>
+
+    <a href="{% url 'announcements' %}">
+        Announcements
+    </a>
+
+    <a href="{% url 'assignments' %}">
+        Assignments
+    </a>
+
+</div>
+
+<div class="card center">
+
+<h1>Enter Student Marks</h1>
+
+<form method="POST">
+
+{% csrf_token %}
+
+<table>
+
+<tr>
+    <th>Roll No</th>
+    <th>Name</th>
+    <th>English</th>
+    <th>Maths</th>
+    <th>Science</th>
+    <th>Social</th>
+    <th>Computer</th>
+</tr>
+
+{% for student in students %}
+
+<tr>
+
+<td>{{ student.roll_no }}</td>
+
+<td>{{ student.name }}</td>
+
+<td>
+<input type="number"
+       name="english_{{ student.id }}"
+       min="0"
+       max="100">
+</td>
+
+<td>
+<input type="number"
+       name="maths_{{ student.id }}"
+       min="0"
+       max="100">
+</td>
+
+<td>
+<input type="number"
+       name="science_{{ student.id }}"
+       min="0"
+       max="100">
+</td>
+
+<td>
+<input type="number"
+       name="social_{{ student.id }}"
+       min="0"
+       max="100">
+</td>
+
+<td>
+<input type="number"
+       name="computer_{{ student.id }}"
+       min="0"
+       max="100">
+</td>
+
+</tr>
+
+{% endfor %}
+
+</table>
+
+<br>
+
+<button type="submit">
+Save Marks
+</button>
+
+</form>
+
+</div>
+
+
+
+</body>
+</html>

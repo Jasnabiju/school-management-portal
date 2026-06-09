@@ -1,0 +1,83 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+<head>
+<title>Report Card</title>
+<link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+
+<body>
+
+    <div class="navbar">
+
+    <a href="{% url 'student_dashboard' %}">
+        Dashboard
+    </a>
+
+    <a href="{% url 'student_view_attendance' %}">
+        Attendance
+    </a>
+
+    <a href="{% url 'student_view_marks' %}">
+        Marks
+    </a>
+
+    <a href="{% url 'view_assignments' %}">
+        Assignments
+    </a>
+
+    <a href="{% url 'view_announcements' %}">
+        Announcements
+    </a>
+
+    <a href="{% url 'profile' %}">
+        Profile
+    </a>
+
+    <a href="{% url 'report_card' %}">
+        Report Card
+    </a>
+
+    <a href="{% url 'view_calendar' %}">
+        Calendar
+    </a>
+
+    <a href="{% url 'logout' %}">
+        Logout
+    </a>
+
+</div>
+
+<div class="header">
+Report Card
+</div>
+
+<div class="card center">
+
+<h2>{{ student.name }}</h2>
+
+<p>
+Roll No:
+{{ student.roll_no }}
+</p>
+
+<hr>
+
+<p>English : {{ mark.english }}</p>
+<p>Maths : {{ mark.maths }}</p>
+<p>Science : {{ mark.science }}</p>
+<p>Social : {{ mark.social }}</p>
+<p>Computer : {{ mark.computer }}</p>
+
+<hr>
+
+<p>
+Attendance :
+{{ attendance_percentage }}%
+</p>
+
+</div>
+
+</body>
+</html>

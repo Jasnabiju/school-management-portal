@@ -1,0 +1,87 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Student Dashboard</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <script src="{% static 'js/script.js' %}"></script>
+</head>
+
+<body>
+
+    <div class="header">
+        KKPP School Management Portal
+    </div>
+
+    <div class="card center">
+
+        <h1 id="welcomeStudent"></h1>
+
+        <div class="dashboard">
+
+            <div class="feature-card"
+                 onclick="location.href='/studentViewAttendance/'">
+                📋<br><br>
+                View Attendance
+            </div>
+
+            <div class="feature-card"
+                 onclick="location.href='/studentViewMarks/'">
+                📊<br><br>
+                View Marks
+            </div>
+
+            <div class="feature-card"
+                 onclick="location.href='/viewAssignments/'">
+                📚<br><br>
+                View Assignments
+            </div>
+
+            <div class="feature-card"
+                 onclick="location.href='/viewAnnouncements/'">
+                📢<br><br>
+                Announcements
+            </div>
+
+            <div class="feature-card"
+                 onclick="location.href='/profile/'">
+                👤<br><br>
+                My Profile
+            </div>
+
+            <div class="feature-card"
+                 onclick="location.href='/reportCard/'">
+                🎓<br><br>
+                Report Card
+            </div>
+
+            <div class="feature-card"
+                 onclick="location.href='/viewCalendar/'">
+                📅<br><br>
+                School Calendar
+            </div>
+
+        </div>
+
+        <br><br>
+
+        <button onclick="logout()">
+            Logout
+        </button>
+
+    </div>
+
+    <div class="footer">
+        © 2026 KKPP School Management Portal
+    </div>
+
+<script>
+
+<h1>
+    Welcome {{ user.username }}
+</h1>
+
+</script>
+
+</body>
+</html>

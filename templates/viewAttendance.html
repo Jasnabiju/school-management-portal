@@ -1,0 +1,99 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Attendance History</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <script src="{% static 'js/script.js' %}"></script>
+</head>
+
+<body>
+<div class="header">
+    KKPP School Management Portal - Student Portal
+</div>
+
+<div class="navbar">
+
+    <a href="{% url 'student_dashboard' %}">
+        Dashboard
+    </a>
+
+    <a href="{% url 'student_view_attendance' %}">
+        Attendance
+    </a>
+
+    <a href="{% url 'student_view_marks' %}">
+        Marks
+    </a>
+
+    <a href="{% url 'view_assignments' %}">
+        Assignments
+    </a>
+
+    <a href="{% url 'view_announcements' %}">
+        Announcements
+    </a>
+
+    <a href="{% url 'profile' %}">
+        Profile
+    </a>
+
+    <a href="{% url 'report_card' %}">
+        Report Card
+    </a>
+
+    <a href="{% url 'view_calendar' %}">
+        Calendar
+    </a>
+
+    <a href="{% url 'logout' %}">
+        Logout
+    </a>
+
+</div>
+
+<div class="card center">
+
+    <h2>My Attendance</h2>
+
+    <table>
+
+        <tr>
+            <th>Date</th>
+            <th>Status</th>
+        </tr>
+
+        {% for record in attendance_records %}
+<tr>
+    <td>{{ record.date }}</td>
+
+    <td
+    style="
+    background:
+    {% if record.status == 'Present' %}
+    greenyellow
+    {% else %}
+    lightcoral
+    {% endif %}
+    ">
+        {{ record.status }}
+    </td>
+</tr>
+{% empty %}
+<tr>
+    <td colspan="2">
+        No attendance records found.
+    </td>
+</tr>
+{% endfor %}
+
+    </table>
+
+</div>
+
+<div class="footer">
+    © 2026 KKPP School Management Portal
+</div>
+
+</body>
+</html>

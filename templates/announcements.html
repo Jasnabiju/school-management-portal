@@ -1,0 +1,111 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Post Announcement</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+
+<body>
+<div class="header">
+    KKPP School Management Portal
+</div>
+    <div class="navbar">
+
+    <a href="{% url 'teacher_dashboard' %}">
+        Dashboard
+    </a>
+
+    <a href="{% url 'attendance' %}">
+        Attendance
+    </a>
+
+    <a href="{% url 'all_attendance' %}">
+        Attendance Records
+    </a>
+
+    <a href="{% url 'marks' %}">
+        Enter Marks
+    </a>
+
+    <a href="{% url 'view_marks' %}">
+        View Marks
+    </a>
+
+    <a href="{% url 'add_student' %}">
+        Add Student
+    </a>
+
+    <a href="{% url 'view_students' %}">
+        View Students
+    </a>
+
+    <a href="{% url 'announcements' %}">
+        Announcements
+    </a>
+
+    <a href="{% url 'assignments' %}">
+        Assignments
+    </a>
+
+</div>
+
+
+
+<div class="card center">
+
+<h2>Create Announcement</h2>
+
+<form method="POST">
+
+    {% csrf_token %}
+
+    <input
+        type="text"
+        name="title"
+        placeholder="Announcement Title"
+        required
+    >
+
+    <br><br>
+
+    <textarea
+        name="message"
+        rows="5"
+        cols="50"
+        placeholder="Write announcement here..."
+        required
+    ></textarea>
+
+    <br><br>
+
+    <button type="submit">
+        Post Announcement
+    </button>
+
+</form>
+
+<hr>
+
+<h2>All Announcements</h2>
+
+{% for a in announcements %}
+    <div>
+        <h3>{{ a.title }}</h3>
+        <p>{{ a.message }}</p>
+    </div>
+    <hr>
+{% empty %}
+    <p>No announcements yet.</p>
+{% endfor %}
+
+</div>
+
+<div class="footer">
+    © 2026 KKPP School Management Portal
+</div>
+
+<script src="{% static 'js/script.js' %}"></script>
+
+</body>
+</html>

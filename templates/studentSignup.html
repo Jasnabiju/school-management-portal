@@ -1,0 +1,42 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Student Signup</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+
+<body>
+
+<div class="header">
+    KKPP School Management Portal
+</div>
+
+<div class="card center">
+
+    <h2>Student Sign Up</h2>
+
+    <form method="POST">
+        {% csrf_token %}
+
+        {{ form.as_p }}
+
+        <button type="submit">
+            Create Account
+        </button>
+    </form>
+
+    <br>
+
+    <a href="{% url 'student' %}">
+        Back to Login
+    </a>
+
+</div>
+
+<div class="footer">
+    © 2026 KKPP School Management Portal
+</div>
+
+</body>
+</html>

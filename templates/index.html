@@ -1,0 +1,55 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>School Portal</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <script src="{% static 'js/script.js' %}"></script>
+
+    <style>
+        h1{
+            text-align:center;
+            color:darkblue;
+            margin-bottom: 0px;
+        }
+        h4{
+            margin-top: 5px;
+        }
+    </style>
+    
+</head>
+<body>
+
+    <div class="header">
+
+        <img src="{% static 'assets/images/school_logo.png' %}"
+     alt="School Logo"
+     width="120">
+        <h1>KKPP School Management Portal</h1>
+
+        <h4 > Welcome! </h4>
+
+        <h2 style="color:white;">Select Your Role</h2>
+
+        <button
+        style="background:blue;color:white;padding:12px;"
+        onclick="window.location.href='/teacher/'">
+            Teacher
+        </button>
+
+        <br><br>
+
+        <button
+        style="background:green;color:white;padding:12px;"
+        onclick="window.location.href='/student/'">
+            Student
+        </button>
+
+    </div>
+
+    <div class="footer">
+        © 2026 KKPP School Management Portal
+    </div>
+
+</body>
+</html>

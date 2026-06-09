@@ -1,0 +1,75 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Edit Student</title>
+    <link rel="stylesheet"
+          href="{% static 'css/style.css' %}">
+</head>
+
+<body>
+    <div class="header">
+    KKPP School Management Portal
+</div>
+
+    <div class="navbar">
+
+    <a href="{% url 'teacher_dashboard' %}">
+        Dashboard
+    </a>
+
+    <a href="{% url 'attendance' %}">
+        Attendance
+    </a>
+
+    <a href="{% url 'all_attendance' %}">
+        Attendance Records
+    </a>
+
+    <a href="{% url 'marks' %}">
+        Enter Marks
+    </a>
+
+    <a href="{% url 'view_marks' %}">
+        View Marks
+    </a>
+
+    <a href="{% url 'add_student' %}">
+        Add Student
+    </a>
+
+    <a href="{% url 'view_students' %}">
+        View Students
+    </a>
+
+    <a href="{% url 'announcements' %}">
+        Announcements
+    </a>
+
+    <a href="{% url 'assignments' %}">
+        Assignments
+    </a>
+
+</div>
+
+<div class="card center">
+
+<h2>Edit Student</h2>
+
+<form method="POST">
+
+{% csrf_token %}
+
+{{ form.as_p }}
+
+<button type="submit">
+Update Student
+</button>
+
+</form>
+
+</div>
+
+</body>
+</html>

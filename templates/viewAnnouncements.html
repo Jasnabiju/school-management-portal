@@ -1,0 +1,129 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+<head>
+<title>Announcements</title>
+<link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+
+<body>
+
+<div class="header">
+KKPP School Management Portal - Student Portal
+</div>
+
+<div class="navbar">
+
+    <a href="{% url 'student_dashboard' %}">
+        Dashboard
+    </a>
+
+    <a href="{% url 'student_view_attendance' %}">
+        Attendance
+    </a>
+
+    <a href="{% url 'student_view_marks' %}">
+        Marks
+    </a>
+
+    <a href="{% url 'view_assignments' %}">
+        Assignments
+    </a>
+
+    <a href="{% url 'view_announcements' %}">
+        Announcements
+    </a>
+
+    <a href="{% url 'profile' %}">
+        Profile
+    </a>
+
+    <a href="{% url 'report_card' %}">
+        Report Card
+    </a>
+
+    <a href="{% url 'view_calendar' %}">
+        Calendar
+    </a>
+
+    <a href="{% url 'logout' %}">
+        Logout
+    </a>
+
+</div>
+
+<div class="card center">
+
+<h2>Announcements</h2>
+
+{% for a in announcements %}
+
+<div class="feature-card">
+
+<h3>{{ a.title }}</h3>
+
+<p>{{ a.message }}</p>
+
+<small>
+{{ a.created_at }}
+</small>
+
+</div>
+
+<br>
+
+{% empty %}
+
+<p>No announcements available.</p>
+
+{% endfor %}
+
+</div>
+
+</body>
+</html>{% load static %}
+
+<!DOCTYPE html>
+<html>
+<head>
+<title>Announcements</title>
+<link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+
+<body>
+
+<div class="header">
+KKPP School Management Portal - Student Portal
+</div>
+
+<div class="card center">
+
+<h2>Announcements</h2>
+
+{% for a in announcements %}
+
+<div class="feature-card">
+
+<h3>{{ a.title }}</h3>
+
+<p>{{ a.message }}</p>
+
+<small>
+{{ a.created_at }}
+</small>
+
+</div>
+
+<br>
+
+{% empty %}
+
+<p>No announcements available.</p>
+
+{% endfor %}
+
+</div>
+
+</body>
+</html>

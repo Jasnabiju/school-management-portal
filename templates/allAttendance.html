@@ -1,0 +1,136 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Attendance Report</title>
+    <link rel="stylesheet"
+          href="{% static 'css/style.css' %}">
+</head>
+
+<body>
+
+    <div class="header">
+    KKPP School Management Portal
+</div>
+
+    <div class="navbar">
+
+    <a href="{% url 'teacher_dashboard' %}">
+        Dashboard
+    </a>
+
+    <a href="{% url 'attendance' %}">
+        Attendance
+    </a>
+
+    <a href="{% url 'all_attendance' %}">
+        Attendance Records
+    </a>
+
+    <a href="{% url 'marks' %}">
+        Enter Marks
+    </a>
+
+    <a href="{% url 'view_marks' %}">
+        View Marks
+    </a>
+
+    <a href="{% url 'add_student' %}">
+        Add Student
+    </a>
+
+    <a href="{% url 'view_students' %}">
+        View Students
+    </a>
+
+    <a href="{% url 'announcements' %}">
+        Announcements
+    </a>
+
+    <a href="{% url 'assignments' %}">
+        Assignments
+    </a>
+
+</div>
+
+<div class="card center">
+
+<h1>Attendance Report</h1>
+
+<div class="dashboard">
+
+<div class="feature-card">
+Total Students
+<br>
+{{ attendance_data|length }}
+</div>
+
+<div class="feature-card">
+Today's Date
+<br>
+{% now "d M Y" %}
+</div>
+
+</div>
+
+<table>
+
+<tr>
+    <th>Roll No</th>
+    <th>Name</th>
+    <th>Present</th>
+    <th>Absent</th>
+    <th>Attendance %</th>
+</tr>
+
+{% for item in attendance_data %}
+
+<tr>
+
+<td>
+{{ item.student.roll_no }}
+</td>
+
+<td>
+{{ item.student.name }}
+</td>
+
+<td class="present">
+{{ item.present }}
+</td>
+
+<td class="absent">
+{{ item.absent }}
+</td>
+
+<td>
+
+{% if item.percentage >= 75 %}
+
+<span class="grade-a">
+{{ item.percentage }}%
+</span>
+
+{% else %}
+
+<span class="grade-c">
+{{ item.percentage }}%
+</span>
+
+{% endif %}
+
+</td>
+
+</tr>
+
+{% endfor %}
+
+</table>
+
+</div>
+
+</body>
+
+</html>

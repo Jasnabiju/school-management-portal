@@ -1,0 +1,50 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Teacher Signup</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+
+<body>
+
+    <div class="header">
+    KKPP School Management Portal
+</div>
+
+<div class="card center">
+<h1>Teacher Signup</h1>
+
+<form method="POST">
+
+    {% csrf_token %}
+
+<p>
+        <label>Username :</label><br>
+        {{ form.username }}
+    </p>
+
+    <p>
+        <label>Password :</label><br>
+        {{ form.password1 }}
+    </p>
+
+    <p>
+        <label>Confirm Password :</label><br>
+        {{ form.password2 }}
+    </p>
+
+    <button type="submit">
+        Create Account
+    </button>
+
+</form>
+</div>
+
+<div class="footer">
+    © 2026 KKPP School Management Portal
+</div>
+
+</body>
+</html>

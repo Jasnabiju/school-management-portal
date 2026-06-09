@@ -1,0 +1,130 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+<head>
+
+<title>All Marks</title>
+
+<link rel="stylesheet"
+href="{% static 'css/style.css' %}">
+
+</head>
+
+<body>
+<div class="header">
+    KKPP School Management Portal - Student Portal
+</div>
+
+    <div class="navbar">
+
+    <a href="{% url 'teacher_dashboard' %}">
+        Dashboard
+    </a>
+
+    <a href="{% url 'attendance' %}">
+        Attendance
+    </a>
+
+    <a href="{% url 'all_attendance' %}">
+        Attendance Records
+    </a>
+
+    <a href="{% url 'marks' %}">
+        Enter Marks
+    </a>
+
+    <a href="{% url 'view_marks' %}">
+        View Marks
+    </a>
+
+    <a href="{% url 'add_student' %}">
+        Add Student
+    </a>
+
+    <a href="{% url 'view_students' %}">
+        View Students
+    </a>
+
+    <a href="{% url 'announcements' %}">
+        Announcements
+    </a>
+
+    <a href="{% url 'assignments' %}">
+        Assignments
+    </a>
+
+</div>
+
+<div class="card center">
+
+<h1>Student Marks Report</h1>
+
+<table>
+
+<tr>
+
+<th>Roll No</th>
+<th>Name</th>
+
+<th>English</th>
+<th>Maths</th>
+<th>Science</th>
+<th>Social</th>
+<th>Computer</th>
+
+<th>Total</th>
+<th>%</th>
+
+</tr>
+
+{% for mark in marks %}
+
+<tr>
+
+<td>{{ mark.student.roll_no }}</td>
+
+<td>{{ mark.student.name }}</td>
+
+<td class="{% if mark.english < 25 %}low-mark{% endif %}">
+{{ mark.english }}
+</td>
+
+<td class="{% if mark.maths < 25 %}low-mark{% endif %}">
+{{ mark.maths }}
+</td>
+
+<td class="{% if mark.science < 25 %}low-mark{% endif %}">
+{{ mark.science }}
+</td>
+
+<td class="{% if mark.social < 25 %}low-mark{% endif %}">
+{{ mark.social }}
+</td>
+
+<td class="{% if mark.computer < 25 %}low-mark{% endif %}">
+{{ mark.computer }}
+</td>
+
+<td>
+
+{{ mark.english|add:mark.maths|add:mark.science|add:mark.social|add:mark.computer }}
+
+</td>
+
+<td>
+
+{% widthratio mark.english|add:mark.maths|add:mark.science|add:mark.social|add:mark.computer 500 100 %}%
+
+</td>
+
+</tr>
+
+{% endfor %}
+
+</table>
+
+</div>
+
+</body>
+</html>

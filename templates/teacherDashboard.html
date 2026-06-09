@@ -1,0 +1,92 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Teacher Dashboard</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <script src="{% static 'js/script.js' %}"></script>
+</head>
+
+<body>
+
+    <div class="header">
+        KKPP School Management Portal
+    </div>
+
+    <div class="card center">
+
+        <h1 id="welcomeTeacher"></h1>
+
+        <div class="dashboard">
+
+            <div class="feature-card"
+                 onclick="location.href='/attendance/'">
+                📋<br><br>
+                Attendance
+            </div>
+
+            <div class="feature-card"
+                 onclick="location.href='/marks/'">
+                📝<br><br>
+                Enter Marks
+            </div>
+
+            <div class="feature-card"
+                 onclick="location.href='/view-marks/'">
+                📊<br><br>
+                View All Marks
+            </div>
+
+            <div class="feature-card"
+                 onclick="location.href='/assignments/'">
+                📚<br><br>
+                Assignments
+            </div>
+
+            <div class="feature-card"
+                 onclick="location.href='/announcements/'">
+                📢<br><br>
+                Announcements
+            </div>
+
+            <div class="feature-card"
+                 onclick="location.href='/allAttendance/'">
+                📅<br><br>
+                Attendance Records
+            </div>
+
+            <div class="feature-card"
+                 onclick="location.href='/calendar/'">
+                📅<br><br>
+                Academic Calendar
+            </div>
+
+            <div class="feature-card"
+                 onclick="location.href='/viewStudents/'">
+                 View Students
+            </div>
+
+        </div>
+
+        <br><br>
+
+        <button onclick="logout()">
+            Logout
+        </button>
+
+    </div>
+
+    <div class="footer">
+        © 2026 KKPP School Management Portal
+    </div>
+
+    <script>
+
+    <h1>
+    Welcome {{ user.username }}
+</h1>
+
+    </script>
+
+</body>
+</html>
