@@ -16,6 +16,12 @@
 
     <h2>Student Sign Up</h2>
 
+    {% if form.errors %}
+<div style="color:red">
+    {{ form.errors }}
+</div>
+{% endif %}
+
     <form method="POST">
         {% csrf_token %}
 

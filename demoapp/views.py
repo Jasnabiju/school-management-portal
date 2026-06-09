@@ -598,13 +598,15 @@ def delete_assignment(request, id):
 
 def student_signup(request):
 
+    print("STUDENT SIGNUP VIEW HIT")
+
     form = StudentSignupForm()
 
     if request.method == "POST":
 
         form = StudentSignupForm(request.POST)
 
-        print("STUDENT FORM VALID =", form.is_valid())
+        print("FORM VALID =", form.is_valid())
 
         if not form.is_valid():
             print(form.errors)
@@ -613,7 +615,16 @@ def student_signup(request):
 
             user = form.save()
 
-            print("STUDENT SAVED =", user.username)
+            Student.objects.create(
+                user=user,
+                name=user.username,
+                roll_no="TEMP",
+                student_class="TEMP",
+                email="temp@gmail.com",
+                phone="0000000000"
+            )
+
+            print("USER SAVED =", user.username)
 
             login(request, user)
 
