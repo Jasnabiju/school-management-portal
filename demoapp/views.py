@@ -203,43 +203,6 @@ def profile(request):
     )
 
 @login_required
-def calendar(request):
-
-    if is_student(request.user):
-        return HttpResponse(
-            "Access Denied"
-        )
-
-    if request.method == "POST":
-
-        AcademicEvent.objects.create(
-
-            title=request.POST.get(
-                "title"
-            ),
-
-            event_date=request.POST.get(
-                "event_date"
-            ),
-
-            description=request.POST.get(
-                "description"
-            )
-        )
-
-    events = AcademicEvent.objects.all().order_by(
-        'event_date'
-    )
-
-    return render(
-        request,
-        'calendar.html',
-        {
-            'events': events
-        }
-    )
-
-@login_required
 def view_marks(request):
 
     if is_student(request.user):
@@ -437,23 +400,6 @@ def reportCard(request):
             'attendance_percentage': attendance_percentage
         }
     )
-
-@login_required
-def viewCalendar(request):
-
-    events = AcademicEvent.objects.all().order_by(
-        'event_date'
-    )
-
-    return render(
-        request,
-        'viewCalendar.html',
-        {
-            'events': events
-        }
-    )
-
-    return render(request, 'viewCalendar.html')
 
 def teacher_signup(request):
 

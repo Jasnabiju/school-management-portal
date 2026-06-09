@@ -56,11 +56,6 @@ path(
     name='profile'
 ),
 
-path(
-    'calendar/',
-    views.calendar,
-    name='calendar'
-),
     path('allAttendance/', views.allAttendance, name='all_attendance'),
 
 path(
@@ -93,11 +88,7 @@ path(
     name='report_card'
 ),
 
-path(
-    'viewCalendar/',
-    views.viewCalendar,
-    name='view_calendar'
-),
+
     path(
         'teacherSignup/',
         views.teacher_signup,
