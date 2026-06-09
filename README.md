@@ -24,3 +24,7 @@ Tech Stack:
 - HTML
 - CSS
 - JavaScript
+
+Live Demo
+
+- https://school-management-portal-wrsi.onrender.com
